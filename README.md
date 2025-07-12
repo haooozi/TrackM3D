@@ -1,8 +1,17 @@
+# TrackM3D 
 
-<h1 align="center">Office implementation of "TrackM3D: Target-Dependent State Space Model Enables a Strong Class-Agnostic Tracker for LiDAR Point Clouds" </h1>
-<img src="docs/trackm3d.png">
+The official implementation of the paper:
 
-## Introduction
+**TrackM3D: Target-Dependent State Space Model Enables a Strong Class-Agnostic Tracker for LiDAR Point Clouds**
+>  [Jiahao Nie](https://scholar.google.com/citations?user=R0uN6pcAAAAJ&hl=zh-CN), [Fei Xie](https://scholar.google.com/citations?user=GbGmwiwAAAAJ&hl=zh-CN&oi=ao), [Sifan Zhou](https://scholar.google.com/citations?user=kSdqoi0AAAAJ&hl=zh-CN&oi=ao), [Mengmeng Wang](https://scholar.google.com/citations?user=VSRnUiUAAAAJ&hl=zh-CN&oi=ao), [Wankou Yang](https://scholar.google.com/citations?user=PMzEsJgAAAAJ&hl=zh-CN&oi=ao), [Kaihua Zhang](https://scholar.google.com/citations?user=FYatMi8AAAAJ&hl=zh-CN&oi=ao), [Zhenhua Feng](https://scholar.google.com/citations?user=Y6KtijIAAAAJ&hl=zh-CN&oi=ao).
+
+<div id="top" align="center">
+<p align="center">
+<img src="docs/trackm3d.png" width="1000px" >
+</p>
+</div>
+
+## 📜 Introduction
 
 <p align="justify">LiDAR point cloud-based 3D single object tracking typically trains one model for each object class, incurring redundant parameters. 
 While recent CUTrack presents class-agnostic models that track objects across all classes using a single network, it has limited cross-class generalization incurred by class-sensitive task layers. 
@@ -11,8 +20,32 @@ The target-dependent SSM possesses two core designs: 1) it incorporates voxel st
 In addition, before target-dependent SSM, a structure-normalized patch embedding is devised to simultaneously encode diverse object classes, which have dynamically changing point cloud data distributions and geometric structures.
 Experimental results demonstrate that TrackM3D not only outperforms previous class-agnostic counterpart (4.9%, 9.3% and 5.5% performance gains on KITTI, nuScenes and Waymo, respectively) with higher computation efficiency, but also bridges performance gaps between class-specific and class-agnostic tracking schemes. 
 
+## 🔥 Highlights
 
-## Setup
+**TrackM3D** is a strong class-agnostic tracker for 3D SOT on LiDAR point clouds that have:
+
+- *SOTA performance on KITTI, NuScenes and Waymo*.
+- *High efficiency*.
+
+<div id="top" align="center">
+<p align="center">
+<img src="results/kitti.jpg" width="1000px" >
+</p>
+</div>
+
+<div id="top" align="center">
+<p align="center">
+<img src="results/nuscenes.png" width="1000px" >
+</p>
+</div>
+
+<div id="top" align="center">
+<p align="center">
+<img src="results/waymo.jpg" width="1000px" >
+</p>
+</div>
+
+## 🕹️ Setup
 
 Here, we list the most important part of our dependencies
 
@@ -30,7 +63,7 @@ Here, we list the most important part of our dependencies
 
 >Note: In addition to above installer, you will need to unzip the `environment_codes.zip` and replace the `voxelize.py` file under the `mmdet3d/models/data_preprocessors` package with the unzipped `.py` file.
 
-## Dataset Preparation
+## 📋 Dataset Preparation
 
 ### KITTI
 
@@ -86,7 +119,7 @@ Here, we list the most important part of our dependencies
             Here are some segment.npz files containing tracklet and bbox data 
     ```
 
-## Training
+## 🤗 Training
 
 + To train a model, you must specify the `.py` file. The `.py` file contains all the configurations of the dataset and the model. We provide `.py` files under the [configs](./configs) directory. 
 
@@ -100,7 +133,7 @@ Here, we list the most important part of our dependencies
     ./dist_train.sh
     ```
 
-## Testing
+## 🤗 Testing
 
 + To test a trained model, specify the checkpoint location with `--resume_from` argument and set the `--phase` argument as `test`.
 
@@ -113,5 +146,5 @@ Here, we list the most important part of our dependencies
     # you will need to edit the `test.py` file by setting the `config` and 'load_from' argument
     ./dist_test.sh
     ```
-## Acknowledgement
+## ❤️ Acknowledgement
 This repo is built upon [Open3DSOT](https://github.com/Ghostish/Open3DSOT), [MMDetection3D](https://github.com/open-mmlab/mmdetection3d) and [PointMamba](https://github.com/LMD0311/PointMamba/). We acknowledge these excellent implementations.
