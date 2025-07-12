@@ -113,7 +113,5 @@ Here, we list the most important part of our dependencies
     # you will need to edit the `test.py` file by setting the `config` and 'load_from' argument
     ./dist_test.sh
     ```
-## Quick Start
-+ We provide pretrained models for quick testing. You will need to unzip `pretrained_models.zip` and put these models in the `pretrained` folder before runing testing.
 ## Acknowledgement
 This repo is built upon [Open3DSOT](https://github.com/Ghostish/Open3DSOT), [MMDetection3D](https://github.com/open-mmlab/mmdetection3d) and [PointMamba](https://github.com/LMD0311/PointMamba/). We acknowledge these excellent implementations.
